@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="style.css" rel="stylesheet">
+  <link href="toolstips.css" rel="stylesheet">
+  <title>Généralisation de routes de montagne</title>
+
+</head>
+
+<body>
+  <section class="def" id="def">
+    <h2>Rappel <button class="hide" id="showdef" display="none">Afficher les définitions.  </button></h2>
+    <div id=ct>
+    <h4>Définiton</h4>
+    La généralisation cartographique correspond à l'adaptation d'une base de donnée géographique précise pour une échelle plus petite. Cela implique de fournir une carte lisible qui préserve l'information initiale.<br>
+    <img src="images\gen.png" class="img3"><br>
+    Voici un exemple de carte généralisée issues du projet européen AGENT (Barrault et al, 2001). L'image represente la généralisation d'une ville par le processus AGENT de la BD Topo® au 1: 50 000 ième . <br>
+
+    <BR>La généralisation des routes de montagne combine differentes opérations présentées ci-dessous pour éviter la <div class="tooltip"> coalescence
+          <span class="tooltiptext"> La coalescence d'un symbole de carte linéaire se produit lorsque plusieurs parties de celui-ci  se recouvrent ou chevauchent, généralement dans les courbes.</span>
+        </div> des symboles. :<br>
+    <div class="image_row">
+      <div class="col"><img src="images\enlargement.png" class="img"> élargissement des tournants </div>
+      <div class="col"><img src="images\smoothing.png" class="img"> lissage de la forme </div>
+      <div class="col"><img src="images\simplify.png" class="img"> simplification (supression de certain virages en série) </div>
+    </div>
+    <h4>Données</h4>
+      Les images initiales sont issues de la base de donnée topographique de l'institut national français de cartographie (IGN). Le niveau de détail de ces routes est adapté pour un affichage avec une échellle entre 1:10 000 et 1:25 000.
+      L'échelle cible pour laquelle ces données sont généralisées est 1:250 000. Toutes les images sont présentées à la même échelle dans un carré dont le coté représente 2.5km de de terrain. La largeur du symbole de route représente l'importance de la route.
+    </div>
+    </section>
+  <br>
+<progress id="progress" max="100" value=0>  </progress>
+<div class="index" id="entrance">
+  <h2>Bienvenue dans mon questionnaire. </h2>
+  Le but de ce questionnaire est d'évaluer plusieurs techniques de généralisation de routes.<br> Il devrait prendre environ <b>20 minutes</b>.<br>
+  <br>
+  Des images de routes généralisées de façon traditionelle à l'IGN et d'autres par intelligence artificielle vous seront présentées. Dans cette dernère approche, un modèle d'apprentissage profond génère des images de routes généralisées, tandis que les methodes tradionelles appliquent des transformations vectorielles aux données topographiques. <Br>
+  Vous trouverez ci-dessous une définition d'une carte généralisée, et une description des transformations usuelles opérées pour la généralisation des routes de montagne. Ensuite vous trouverez des informations sur les images présentées.<br>
+
+  Ces informations peuvent être afficher à tout moment du questionnaire, donc n'hésitez pas à les lire à nouveau si vous pensez que c'est néccessaire. <br>
+  <section class="def"> <h2>Définition</h2>
+    La généralisation cartographique correspond à l'adaptation d'une base de donnée géographique précise pour une échelle plus petite. Cela implique de fournir une carte lisible qui préserve l'information initiale.<br>
+    <img src="images\gen.png" class="img3"><br>
+    Voici un exemple de carte généralisée issues du projet européen AGENT (Barrault et al, 2001). L'image represente la généralisation d'une ville par le processus AGENT de la BD Topo® au 1: 50 000 ième . <br>
+
+    <BR>La généralisation des routes de montagne combine differentes opérations présentées ci-dessous pour éviter la <div class="tooltip"> coalescence
+          <span class="tooltiptext"> La coalescence d'un symbole de carte linéaire se produit lorsque plusieurs parties de celui-ci  se recouvrent ou chevauchent, généralement dans les courbes.</span>
+        </div> des symboles. :<br>
+    <div class="image_row">
+      <div class="col"><img src="images\enlargement.png" class="img"> élargissement des tournants </div>
+      <div class="col"><img src="images\smoothing.png" class="img"> lissage de la forme </div>
+      <div class="col"><img src="images\simplify.png" class="img"> simplification (supression de certain virages en série) </div>
+    </div>
+    <h2>Données</h2>
+      Les images initiales sont issues de la base de donnée topographique de l'institut national français de cartographie (IGN). Le niveau de détail de ces routes est adapté pour un affichage avec une échellle entre 1:10 000 et 1:25 000.
+      L'échelle cible pour laquelle ces données sont généralisées est 1:250 000. Toutes les images sont présentées à la même échelle dans un carré dont le coté représente 2.5km de de terrain. La largeur du symbole de route représente l'importance de la route.
+      </section>
+  Quand vous êtes prêt...<br>
+  <button class="button" type="button" id="start">
+    Démarrez le questionnaire.
+  </button>
+</div>
+
+<div class="evaluate" id="eval">
+  <h2>Evaluation</h2>
+  Dans cette partie il va vous être demandé de répondre à une série de 3 questions pour 7 paires d'images.<br>
+
+  <section>  <h4>Images</h4> Voici une image de route et sa généralisation <br>
+  <div class="image_row" id="image_row"></div>
+  </section>
+  <h4>Questions</h4>
+  <section>  Q1 : A quel point trouvez vous que l'image est bien <div class="tooltip">généraliséee
+        <span class="tooltiptext">  Nous appelons bien généralisée les images pour lesquels les opérations présentées en definition sont bien appliquées.</span>
+      </div> ?
+  <form class="form">
+  <input type="radio" id="vg1" name="Q1" value="very good">
+  <label for="vg1">Très bien </label><br>
+  <input type="radio" id="g1" name="Q1" value="good">
+  <label for="g1">Bien </label><br>
+  <input type="radio" id="b1" name="Q1" value="bad">
+  <label for="b1">Mal </label><br>
+  <input type="radio" id="vb1" name="Q1" value="very bad">
+  <label for="vb1">Très mal </label>
+  </form></section>
+  <section>  Q2 : A quel point trouvez vous l'image généralisée <div class="tooltip"> réaliste
+        <span class="tooltiptext"> nous appelns realiste les image qui ressemble a un extrait de carte traditionnelles. Les algorithmes d'apprentissage profond peuven induire la generation 'image irrreaslit, bruitées, discontinues, ou avec des artéfacts  de route dans le fond.</span>
+      </div> ?
+  <form class="form">
+  <input type="radio" id="vg2" name="Q1" value="very good">
+  <label for="vg2">Très bien</label><br>
+  <input type="radio" id="g2" name="Q1" value="good">
+  <label for="g2">Bien </label><br>
+  <input type="radio" id="b2" name="Q1" value="bad">
+  <label for="b2">Mal</label><br>
+  <input type="radio" id="vb2" name="Q1" value="very bad">
+  <label for="vb2">Très mal </label>
+  </form></section>
+  <section>  Q3 : A quel pont trouvez vous l'image généralisée <div class="tooltip">lisible
+    <span class="tooltiptext">Nous appelons une image lisible si on peut distinguer les routes et qu'il ni a pas de coalescence de symbole.</span> </div>?
+  <form class="form">
+  <input type="radio" id="vg3" name="Q1" value="very good">
+  <label for="vg3">Très bien </label><br>
+  <input type="radio" id="g3" name="Q1" value="good">
+  <label for="g3">Bien</label><br>
+  <input type="radio" id="b3" name="Q1" value="bad">
+  <label for="b3">Mal</label><br>
+  <input type="radio" id="vb3" name="Q1" value="very bad">
+  <label for="vb3">Très mal </label>
+  </form></section>
+  <button class="button cansubform" id="submitbutton" type="button" disabled=true>
+      Valider
+  </button>
+</div>
+
+
+<div class="rank" id="rank">
+
+    <h2>Classement</h2>
+
+    <section>  <h4>Images</h4>   <div id="init_image"></div>  <br> Voici quelques généralisations de l'image précédente <br>
+      <div class="image_row" id="row"></div>
+    </section>
+    <section> <h4>Classement </h4> Placez les généralisations alternatives dans les casses dans votre ordre de préférence.</section>
+    <div class="image_row">Celle que je préfère    <img src="images\fleche.jpg" class="imglg">Celle que j'apprécie de le moins.</div>
+    <div class="empty_row"  id="empty_row"></div>
+    <button class="cancel" id="cancel" type="button">Annuler</button>
+    <button class="button cansubrank" type="button" disabled=true>Valider</button>
+</div>
+
+<div class="rank_smart" id="rank_smart">
+
+    <h2>Classement</h2>
+
+    <section> <div id="init_image"></div>  <br> Voici quelques généralisations de l'image précédente. Utilisez les flèches pour ordonner les images de généralisations alternatives selon votre ordre de préférence (de l'image préférée à gauche, à la moins appréciée à droite). <br>
+      <div class="image_row" id="row_smart"></div>
+    </section>
+
+    <button class="button cansubrank_smart" type="button" >Valider</button>
+    <div class="row">
+    </div>
+</div>
+
+
+<div class="output" id= "out">
+  <h2>Informations générales</h2>
+  Q1 : A quelle fréquence utilisez vous des cartes (papier ou en ligne):
+  <form class='infos'>
+    <input type="radio" id="d" name="O1" value="Daily">
+    <label for="d">Tous les jours.</label><br>
+    <input type="radio" id="w" name="O1" value="Weekly">
+    <label for="w">Toutes le semaines.</label><br>
+    <input type="radio" id="M" name="O1" value="Mont hly">
+    <label for="M">Tous les mois.</label><br>
+    <input type="radio" id="L" name="O1" value="Less often">
+    <label for="L">Moins souvent.</label>
+  </form>
+  <br>
+  Q2 : A quel point étiez vous familier avec le concept de généralisation cartographique :
+  <form class='infos'>
+    <input type="radio" id="W1" name="O2" value="W1">
+    <label for="W1"> Très familier, je suis un spécialiste de la généralisation cartographique</label><br>
+    <input type="radio" id="W2" name="O2" value="W2">
+    <label for="W2">Familier, je suis spécialiste de l'information cartographique ou de la visualisation</label><br><br>
+    <input type="radio" id="M1" name="O2" value="M1">
+    <label for="M1">Assez familier, j'en ai entendu parler durant mes études.</label><br>
+    <input type="radio" id="M2" name="O2" value="M2">
+    <label for="M2">Assez familier, j'en ai entendu parler dans un autre contexte.</label><br><br>
+  <input type="radio" id="L1" name="O2" value="L">
+  <label for="L1">Pas familier du tout, je n'en avais jamais entendu parler.</label>
+  </form><br>
+  Q3 : Vous êtes :
+  <form class='infos'>
+  <input type="radio" id="Male" name="O3" value="Male">
+  <label for="Male">Un homme. </label><br>
+  <input type="radio" id="Female" name="O3" value="Female">
+  <label for="Female">Une femme</label><br>
+  <input type="radio" id="Other" name="O3" value="Other">
+  <label for="Other">Autre / Je ne souhaite pas répondre</label><br>
+  </form><br>
+  Q4 : Vous êtes agé de :
+  <form class='infos'>
+  <input type="radio" id="VY" name="O4" value="Male">
+  <label for="VY">Moins de 25 ans. </label><br>
+  <input type="radio" id="Y" name="O4" value="Female">
+  <label for="Y">De 25 à 50 ans.</label><br>
+  <input type="radio" id="O" name="O4" value="Female">
+  <label for="O">Plus de 50 ans.</label><br>
+  <input type="radio" id="VO" name="O4" value="Other">
+  <label for="VO">Je ne souhaite pas répondre.</label><br>
+  </form><br>
+</div>
+
+<form   method="post" action="https://formspree.io/azelle.courtial@live.fr">
+<input type="text" name="field" id="sentence">
+<input class="button cansubfinal" type="submit" name="SEND" value="Submit" id="send">
+</form>
+
+
+<div class="thanks" id= "thanks">
+  <h2>Merci pour votre participation.</h2>
+  Vos réponses ont étés enregistrées. <br> Pour plus d'information contactez : azelle.courtial@ign.fr<br>
+  Vous pouvez desormais quitter la page.
+</div>
+
+<script src="firstpage.js"></script>
+<script src="cansubmit.js"></script>
+
+</body>
+
+</html>
