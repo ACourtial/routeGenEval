@@ -59,7 +59,7 @@ document.getElementById('start').addEventListener('click',function(){
 
 document.addEventListener('click',function(){
   if(page==15){
-    infos="infos,";
+    infos="infosfr,";
     var f = document.querySelectorAll('.infos');
     for (let question = 0; question <f.length; question++) {
       b=f[question].length;
@@ -133,7 +133,7 @@ function saisir(page){
       }
     }
   } else if (page==15) {
-    saisie+=" infos,"
+    saisie+=" infosfr,"
     var f = document.querySelectorAll('.infos');
     for (let question = 0; question <f.length; question++) {
       b=f[question].length;
@@ -160,11 +160,11 @@ document.getElementById("showdef").addEventListener('click',function(){
   if (st){
       document.getElementById("ct").style.display = "inherit";
       st=false;
-      document.getElementById("showdef").innerHTML="Hide definitions.";
+      document.getElementById("showdef").innerHTML="Cacher les définitions.";
   }else{
       document.getElementById("ct").style.display = "none";
       st=true;
-      document.getElementById("showdef").innerHTML="Display definitions.";
+      document.getElementById("showdef").innerHTML="Afficher les définitions.";
 }
 });
 
