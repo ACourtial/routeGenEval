@@ -200,7 +200,7 @@ function open_next(page){
       +"<div class='col' id='col1'><img src=\"images\\rank\\C2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
       +"<div class='col' id='col2'><img src=\"images\\rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
       +"<div class='col' id='col3'><img src=\"images\\rank\\A2"+im+".png\" draggable=\"true\" class=\"img\" id=\"a\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
-      +"<div class='col' id='col3'><img src=\"images\\rank\\B2"+im+".png\" draggable=\"true\" class=\"img\" id=\"b\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>";
+      +"<div class='col' id='col4'><img src=\"images\\rank\\B2"+im+".png\" draggable=\"true\" class=\"img\" id=\"b\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>";
     if (smart){
           document.getElementById("rank").style.display = "none";
           document.getElementById("rank_smart").style.display = "inherit";
@@ -297,7 +297,7 @@ function rankwitharrow(){
     //désactivation de 0g
     document.getElementById('col0').querySelectorAll('.classementg')[0].disabled = true;
     //désactivation de 3d
-    document.getElementById('col3').querySelectorAll('.classementd')[0].disabled = true;
+    document.getElementById('col4').querySelectorAll('.classementd')[0].disabled = true;
 
   })
 }
