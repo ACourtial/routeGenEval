@@ -14,10 +14,23 @@ var tab_e=[["r1","p2","c3","r5","p6","c7"," ","r9","p10","c11","r13","p14","c15"
            ["c9","r11","p12","c13","r15","p16"," ","c1","r3","p4","c5","r7","p8"],
            ["r10","p11","c12","r14","p15","c16"," ","r2","p3","c4","r6","p7","c8"]
          ]
+
+var tab_e=[["r230","A102","B294","C326","D214","r470"," ","A278","B118","C54","D150","r198","A166"],
+          ["A230","B102","C502","D326","r214","A86"," ","B278","C118","D438","r150","A198","B134"],
+          ["B230","C294","D502","r326","A470","B86"," ","C278","D54","r438","A150","B166","C134"],
+          ["C102","D294","r502","A214","B470","C86"," ","D118","r54","A438","B198","C166","D134"],
+          ["D230","r102","A294","B326","c214","D470"," ","r278","A118","B54","C150","D198","r166"],
+
+          [,"A278","B118","C54","D150","r198","A166"," ","r230","A102","B294","C326","D214","r470"],
+          ["B278","C118","D438","r150","A198","B134"," ","A230","B102","C502","D326","r214","A86"],
+          ["C278","D54","r438","A150","B166","C134"," ","B230","C294","D502","r326","A470","B86"],
+          ["D118","r54","A438","B198","C166","D134"," ","C102","D294","r502","A214","B470","C86"],
+          ["r278","A118","B54","C150","D198","r166"," ","D230","r102","A294","B326","c214","D470"]
+          ]
 var tab_r=[[1,5],[2,4],[3,6],[5,1],[4,2],[6,3]]
 
 
-var sequence_e=tab_e[id%8];
+var sequence_e=tab_e[id%10];
 var sequence_r=tab_r[id%3];
 var finish=false;
 
@@ -179,14 +192,15 @@ function open_next(page){
     document.getElementById("progress").style.display = "inherit";
     document.getElementById("eval").style.display = "none";
     document.getElementById("send").style.display = "none";
-    document.getElementById("init_image").innerHTML="<img src=\"images\\image_rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
-    document.getElementById("empty_row").innerHTML="<div class=\"empty_square\" value=\"1\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"2\"></div>"
-    document.getElementById("row").innerHTML="<img src=\"images\\image_rank\\p2"+im+".png\" draggable=\"true\" class=\"img\" id=\"p\"><img src=\"images\\image_rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><img src=\"images\\image_rank\\u2"+im+".png\" draggable=\"true\" class=\"img\" id=\"u\" ><img src=\"images\\image_rank\\c2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\">";
+    document.getElementById("init_image").innerHTML="<img src=\"images\\rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
+    document.getElementById("empty_row").innerHTML="<div class=\"empty_square\" value=\"1\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"3\"></div><div class=\"empty_square\" value=\"4\"></div><div class=\"empty_square\" value=\"5\"></div>"
+    document.getElementById("row").innerHTML="<img src=\"images\\rank\\D2"+im+".png\" draggable=\"true\" class=\"img\" id=\"d\"><img src=\"images\\rank\\C2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\"><img src=\"images\\rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><img src=\"images\\rank\\A2"+im+".png\" draggable=\"true\" class=\"img\" id=\"a\" ><img src=\"images\\rank\\B2"+im+".png\" draggable=\"true\" class=\"img\" id=\"b\">";
     document.getElementById("row_smart").innerHTML=
-      "<div class='col' id='col0'><img src=\"images\\image_rank\\p2"+im +".png\" draggable=\"true\" class=\"img\" id=\"p\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
-      +"<div class='col' id='col1'><img src=\"images\\image_rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
-      +"<div class='col' id='col2'><img src=\"images\\image_rank\\u2"+im+".png\" draggable=\"true\" class=\"img\" id=\"u\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
-      +"<div class='col' id='col3'><img src=\"images\\image_rank\\c2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>";
+      "<div class='col' id='col0'><img src=\"images\\rank\\D2"+im +".png\" draggable=\"true\" class=\"img\" id=\"d\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col1'><img src=\"images\\rank\\C2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col2'><img src=\"images\\rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col3'><img src=\"images\\rank\\A2"+im+".png\" draggable=\"true\" class=\"img\" id=\"a\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col3'><img src=\"images\\rank\\B2"+im+".png\" draggable=\"true\" class=\"img\" id=\"b\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>";
     if (smart){
           document.getElementById("rank").style.display = "none";
           document.getElementById("rank_smart").style.display = "inherit";
@@ -224,7 +238,7 @@ function open_next(page){
     document.getElementById("entrance").style.display = "none";
     document.getElementById("rank").style.display = "none";
     document.getElementById("send").style.display = "none";
-    document.getElementById("image_row").innerHTML=  "<img src=\"images\\image_eval\\i"+im.substring(1,im.length)+".png\" class=\"img\">  <img src=\"images\\fleche.jpg\" class=\"imgdemi\"><img src=\"images\\image_eval\\"+im+".png\" class=\"img\">"
+    document.getElementById("image_row").innerHTML=  "<img src=\"images\\eval\\i"+im.substring(1,im.length)+".png\" class=\"img\">  <img src=\"images\\fleche.jpg\" class=\"imgdemi\"><img src=\"images\\eval\\"+im+".png\" class=\"img\">"
     document.getElementById("eval").style.display = "inherit";
     document.getElementById("rank_smart").style.display = "none";
   }
