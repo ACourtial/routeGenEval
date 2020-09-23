@@ -193,6 +193,7 @@ function open_next(page){
     document.getElementById("eval").style.display = "none";
     document.getElementById("send").style.display = "none";
     document.getElementById("init_image").innerHTML="<img src=\"images\\rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
+    document.getElementById("init_image2").innerHTML="<img src=\"images\\rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
     document.getElementById("empty_row").innerHTML="<div class=\"empty_square\" value=\"1\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"3\"></div><div class=\"empty_square\" value=\"4\"></div><div class=\"empty_square\" value=\"5\"></div>"
     document.getElementById("row").innerHTML="<img src=\"images\\rank\\D2"+im+".png\" draggable=\"true\" class=\"img\" id=\"d\"><img src=\"images\\rank\\C2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\"><img src=\"images\\rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><img src=\"images\\rank\\A2"+im+".png\" draggable=\"true\" class=\"img\" id=\"a\" ><img src=\"images\\rank\\B2"+im+".png\" draggable=\"true\" class=\"img\" id=\"b\">";
     document.getElementById("row_smart").innerHTML=
