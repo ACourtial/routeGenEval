@@ -64,7 +64,7 @@ window.addEventListener('beforeunload',function (event){
 
 
 document.getElementById('start').addEventListener('click',function(){
-  id=getRandomInt(8);
+  id=getRandomInt(10);
   saisie=String(id)+",";
   sequence_e=tab_e[id%8];
   sequence_r=tab_r[id%3];
